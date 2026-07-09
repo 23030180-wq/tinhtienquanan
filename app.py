@@ -19,6 +19,11 @@ menu = {
     }
 }
 
+ban = st.selectbox(
+    "🪑 Chọn bàn",
+    [f"Bàn {i}" for i in range(1,11)]
+)
+
 # Sử dụng dict trong session_state để quản lý món theo tên
 if 'order_dict' not in st.session_state:
     st.session_state.order_dict = {}
@@ -48,6 +53,13 @@ with col1:
                 "Thành tiền": price * quantity
             }
         st.success(f"Đã cập nhật {item} vào giỏ!")
+
+gia = menu[category][item]
+
+st.metric(
+    "💰 Giá món",
+    f"{gia:,.0f} VNĐ"
+)
 
 with col2:
     st.subheader("Giỏ hàng")
