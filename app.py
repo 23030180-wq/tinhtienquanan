@@ -61,6 +61,23 @@ st.metric(
     f"{gia:,.0f} VNĐ"
 )
 
+c1,c2,c3=st.columns(3)
+
+c1.metric(
+    "🛒 Số món",
+    len(df)
+)
+
+c2.metric(
+    "📦 Tổng số lượng",
+    df["Số lượng"].sum()
+)
+
+c3.metric(
+    "💰 Tạm tính",
+    f"{tam_tinh:,.0f}"
+)
+
 with col2:
     st.subheader("Giỏ hàng")
     if st.session_state.order_dict:
